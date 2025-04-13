@@ -45,7 +45,7 @@ export class DetailsComponent implements OnInit {
 
 
 addProductToCart(id:string):void{
-  if (localStorage.getItem('userToken')){
+
   this.cartService.addProductToCart(id).subscribe({
     next:(res)=>{
       console.log(res);
@@ -56,4 +56,4 @@ addProductToCart(id:string):void{
   },
   })
 }}
-}
+
