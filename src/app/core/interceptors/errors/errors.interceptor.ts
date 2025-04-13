@@ -4,11 +4,19 @@ import { ToastrService } from 'ngx-toastr';
 import { catchError, throwError } from 'rxjs';
 
 export const errorsInterceptor: HttpInterceptorFn = (req, next) => {
-  const toastrService = inject (ToastrService)
-  return next(req).pipe( catchError ( (err)=>{
-    console.log('interceptors' , err.error.message)
-    toastrService.error(err.error.message , 'FreshCart')
-    return throwError( ()=> err   )
-  }
-))
+  const toastrService = inject(ToastrService);
+
+  return next(req).pipe(
+    catchError((err) => {
+      console.log('interceptors', err.error.message);
+
+      const isCartRequest = req.url.includes('/cart');
+
+      if (!isCartRequest) {
+        toastrService.error(err.error.message, 'FreshCart');
+      }
+
+      return throwError(() => err);
+    })
+  );
 };
