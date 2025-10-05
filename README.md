@@ -20,6 +20,6 @@ Built for performance. Designed for users. Powered by Angular.
 This isn’t just a website — it’s a complete eCommerce experience
 
 
-Live Demo : https://fresh-cart-main-rrad.vercel.app/login
+Live Demo : https://fresh-cart-main-cyan.vercel.app
 
 
